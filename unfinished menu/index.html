@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Pixelify Sans', sans-serif;
+            background-color: #121212;
+            color: #fff;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+            padding: 10px 0;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        main {
+            margin-top: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #444;
+            padding-bottom: 10px;
+        }
+
+        .settings {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .checkbox-button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 5px;
+            background-color: #333;
+            color: white;
+            text-align: center;
+            border: 1px solid #555;
+            position: relative;
+            transition: background-color 0.3s;
+            border-radius: 5px;
+            user-select: none;
+            overflow: hidden;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .checkbox-button span {
+            flex-grow: 1;
+        }
+
+        .checkbox-button .status {
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            background-color: transparent;
+            color: inherit;
+            font-size: 16px;
+            text-align: center;
+            margin-left: 10px;
+            transition: color 0.3s;
+        }
+
+        .checkbox-button .status.on {
+            color: green;
+        }
+
+        .checkbox-button .status.off {
+            color: red;
+        }
+
+        .slider-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        .slider-container span {
+            margin-bottom: 10px;
+            color: white;
+            font-size: 16px;
+        }
+
+        .long-slider {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.3);
+            outline: none;
+            opacity: 0.7;
+            transition: opacity 0.2s;
+        }
+
+        .long-slider:hover {
+            opacity: 1;
+        }
+
+        .long-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            background: #fff;
+            cursor: pointer;
+            border: 1px solid #555;
+            box-sizing: border-box;
+        }
+
+        .long-slider::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            background: #fff;
+            cursor: pointer;
+            border: 1px solid #555;
+            box-sizing: border-box;
+        }
+
+        .active {
+            border-bottom: 2px solid #121212;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="#aimbot">AIMBOT</a></li>
+                    <li><a href="#visuals">VISUALS</a></li>
+                    <li><a href="#">EXTRAS</a></li>
+                    <li><a href="#">CONFIGS</a></li>
+                    <li><a href="#">SUPPORT</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <!-- Aimbot Settings -->
+            <div id="aimbot" class="tab-content active">
+                <h1>Aim</h1>
+                <div class="settings">
+                    <div id="aimbotButton" class="checkbox-button" onclick="toggleStatus(this, '/enable_aimbot')">
+                        <span>Aimbot</span>
+                        <div class="status on">ON</div>
+                    </div>
+                    <div id="prediction" class="checkbox-button" onclick="toggleStatus(this, '/enable_prediction')">
+                        <span>Prediction</span>
+                        <div class="status on">ON</div>
+                    </div>
+                    <div id="fovCircleButton" class="checkbox-button" onclick="toggleStatus(this, '/enable_fov')">
+                        <span>Fov Circle</span>
+                        <div class="status on">ON</div>
+                    </div>
+                </div>
+                <div class="slider-container">
+                    <span>Fov: <span id="fovSlider">10</span></span>
+                    <input type="range" id="fov-slider" name="fov-slider" min="10" max="300" value="10" class="long-slider">
+                    <span id="fovValue">0</span>
+                </div>
+                <div class="slider-container">
+                    <span>Smoothness: <span id="smoothnessDisplay">10</span></span>
+                    <input type="range" id="smoothSlider" name="smoothness-slider" min="10" max="100" value="10" class="long-slider">
+                    <span id="smoothValue">0</span>
+                </div>
+            </div>
+            
+            <!-- Visuals Settings -->
+            <div id="visuals" class="tab-content">
+                <h1>Visuals Settings</h1>
+                <div class="settings">
+                    <div id="boxEspButton" class="checkbox-button" onclick="toggleStatus(this)">
+                        <span>Boxesp</span>
+                        <div class="status on">ON</div>
+                    </div>
+                    <div id="skeletonEspButton" class="checkbox-button" onclick="toggleStatus(this)">
+                        <span>Skeletonesp</span>
+                        <div class="status on">ON</div>
+                    </div>
+                    <div id="headEspButton" class="checkbox-button" onclick="toggleStatus(this)">
+                        <span>Headesp</span>
+                        <div class="status on">ON</div>
+                    </div>
+                    <div id="outline" class="checkbox-button" onclick="toggleStatus(this)">
+                        <span>Outlines</span>
+                        <div class="status off">OFF</div>
+                    </div>
+                    <div id="ranked" class="checkbox-button" onclick="toggleStatus(this)">
+                        <span>Rankedesp</span>
+                        <div class="status off">OFF</div>
+                    </div>
+                    <div id="username" class="checkbox-button" onclick="toggleStatus(this)">
+                        <span>Username</span>
+                        <div class="status off">OFF</div>
+                    </div>
+                    <div id="distance" class="checkbox-button" onclick="toggleStatus(this)">
+                        <span>Distance</span>
+                        <div class="status off">OFF</div>
+                    </div>
+                    <div id="snapline" class="checkbox-button" onclick="toggleStatus(this)">
+                        <span>Snapline</span>
+                        <div class="status on">ON</div>
+                    </div>
+                </div>
+                <div class="slider-container">
+                    <span>Box thickness: <span id="box-thic">5</span></span>
+                    <input type="range" id="box-thic" name="box-thic" min="1" max="5" value="1" class="long-slider" oninput="updateSliderValue(this)">
+                    <span id="boxvalue">1</span>
+                </div>
+
+                <div class="slider-container">
+                    <span>Skeleton thickness: <span id="skelthic">5</span></span>
+                    <input type="range" id="skelthick" name="skelthick" min="1" max="5" value="1" class="long-slider" oninput="updateSliderValue(this)">
+                    <span id="skelvalue">1</span>
+                </div>
+
+                <div class="slider-container">
+                    <span>Snapline thickness: <span id="snapthic">5</span></span>
+                    <input type="range" id="snapthic" name="snapthic" min="1" max="5" value="1" class="long-slider" oninput="snap(this)">
+                    <span id="snapvalue">1</span>
+                </div>
+
+                <div class="slider-container">
+                    <span>Render distance: <span id="renderdis">275</span></span>
+                    <input type="range" id="renderdis" name="renderdis" min="0" max="275" value="275" class="long-slider" oninput="render(this)">
+                    <span id="disvalue">0</span>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script>
+        function toggleStatus(element, url) {
+            var status = element.querySelector('.status');
+            var isOn = status.classList.contains('on');
+            
+            status.classList.toggle('on', !isOn);
+            status.classList.toggle('off', isOn);
+            status.textContent = isOn ? 'OFF' : 'ON';
+
+            if (url) {
+                fetch(url, { method: 'POST' })
+                    .then(response => response.json())
+                    .then(data => console.log(`${element.id} status updated:`, data))
+                    .catch(error => console.error('Error:', error));
+            }
+        }
+
+
+        function render(slider) {
+            var valueDisplay = document.getElementById(slider.id.replace('-slider', ''));
+            valueDisplay.textContent = slider.value;
+        }
+
+        function snap(slider) {
+            var valueDisplay = document.getElementById(slider.id.replace('-slider', ''));
+            valueDisplay.textContent = slider.value;
+        }
+
+        // Handle hash-based navigation
+        window.addEventListener('hashchange', function() {
+            var hash = window.location.hash.substring(1);
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            if (document.getElementById(hash)) {
+                document.getElementById(hash).classList.add('active');
+            }
+        });
+
+        // Initialize the correct tab based on the current hash
+        (function() {
+            var hash = window.location.hash.substring(1);
+            if (hash && document.getElementById(hash)) {
+                document.getElementById(hash).classList.add('active');
+            } else {
+                // Default to showing the first tab if no hash is found
+                document.getElementById('aimbot').classList.add('active');
+            }
+        })();
+
+        document.getElementById('crosshair').addEventListener('click', function() {
+            fetch('/enable_crosshair', {
+                method: 'POST'
+            }).then(response => response.json())
+              .then(data => {
+                  console.log('crosshair enabled:', data);
+              });
+        });
+
+        document.getElementById('vsync').addEventListener('click', function() {
+            fetch('/enable_vsync', {
+                method: 'POST'
+            }).then(response => response.json())
+              .then(data => {
+                  console.log('vsync enabled:', data);
+              });
+        });
+
+        document.getElementById('watermark').addEventListener('click', function() {
+            fetch('/enable_watermark', {
+                method: 'POST'
+            }).then(response => response.json())
+              .then(data => {
+                  console.log('watermark enabled:', data);
+              });
+        });
+
+        document.getElementById('snapthick').addEventListener('input', function() {
+            var value = parseInt(this.value, 10);  // Convert slider value to integer
+            document.getElementById('snapvalue').textContent = value;
+            fetch('/snapthickness', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ snapthick: value })  // Correct key 'snapthick'
+            }).then(response => response.json())
+              .then(data => {
+                  console.log('Snapline thickness set to:', value, data);
+              }).catch(error => {
+                  console.error('Error setting snapline thickness:', error);
+              });
+        });
+
+        document.getElementById('skelthick').addEventListener('input', function() {
+            var value = parseInt(this.value, 10);  // Convert slider value to integer
+            document.getElementById('skelvalue').textContent = value;
+            fetch('/skelthickness', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ skelthick: value })  // Correct key 'skelthick'
+            }).then(response => response.json())
+              .then(data => {
+                  console.log('Box thickness set to:', value, data);
+              }).catch(error => {
+                  console.error('Error setting box thickness:', error);
+              });
+        });
+
+        document.getElementById('boxthic').addEventListener('input', function() {
+            var value = parseInt(this.value, 10);  // Convert slider value to integer
+            document.getElementById('boxvalue').textContent = value;
+            fetch('/boxthickness', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ boxthic: value })  // Correct key 'boxthic'
+            }).then(response => response.json())
+              .then(data => {
+                  console.log('Box thickness set to:', value, data);
+              }).catch(error => {
+                  console.error('Error setting box thickness:', error);
+              });
+        });
+
+        document.getElementById('renderdis').addEventListener('input', function() {
+            var value = parseInt(this.value, 10);  // Convert slider value to integer
+            document.getElementById('disvalue').textContent = value;
+            fetch('/renderdistance', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ distance: value })  // Correct key 'distance'
+            }).then(response => response.json())
+              .then(data => {
+                  console.log('Distance set to:', value, data);
+              }).catch(error => {
+                  console.error('Error setting distance:', error);
+              });
+        });
+
+        document.getElementById('fovCircleButton').addEventListener('click', function() {
+            fetch('/enable_fov', {
+                method: 'POST'
+            }).then(response => response.json())
+              .then(data => {
+                  console.log('fovv enabled:', data);
+              });
+        });
+
+        document.getElementById('distance').addEventListener('click', function() {
+            fetch('/distance', {
+                method: 'POST'
+            }).then(response => response.json())
+              .then(data => {
+                  console.log('Distance enabled:', data);
+              });
+        });
+
+        document.getElementById('username').addEventListener('click', function() {
+            fetch('/username', {
+                method: 'POST'
+            }).then(response => response.json())
+              .then(data => {
+                  console.log('Username enabled:', data);
+              });
+        });
+
+        document.getElementById('snapline').addEventListener('click', function() {
+            fetch('/snapline', {
+                method: 'POST'
+            }).then(response => response.json())
+              .then(data => {
+                  console.log('Snapline enabled:', data);
+              });
+        });
+
+        document.getElementById('ranked').addEventListener('click', function() {
+            fetch('/ranked', {
+                method: 'POST'
+            }).then(response => response.json())
+              .then(data => {
+                  console.log('Ranked enabled:', data);
+              });
+        });
+
+        document.getElementById('outline').addEventListener('click', function() {
+            fetch('/outline', {
+                method: 'POST'
+            }).then(response => response.json())
+              .then(data => {
+                  console.log('Outline enabled:', data);
+              });
+        });
+
+        document.getElementById('aimbotButton').addEventListener('click', function() {
+            fetch('/enable_aimbot', {
+                method: 'POST'
+            }).then(response => response.json())
+              .then(data => {
+                  console.log('Aimbot enabled:', data);
+              });
+        });
+
+        document.getElementById('headEspButton').addEventListener('click', function() {
+            fetch('/enable_head', {
+                method: 'POST'
+            }).then(response => response.json())
+              .then(data => {
+                  console.log('Head enabled:', data);
+              });
+        });
+
+        document.getElementById('prediction').addEventListener('click', function() {
+            fetch('/enable_prediction', {
+                method: 'POST'
+            }).then(response => response.json())
+              .then(data => {
+                  console.log('Prediction enabled:', data);
+              });
+        });
+
+        document.getElementById('fovSlider').addEventListener('input', function() {
+            var value = parseInt(this.value, 10);  // Convert slider value to integer
+            document.getElementById('fovValue').textContent = value;
+            fetch('/set_fov', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ fov: value })
+            }).then(response => response.json())
+              .then(data => {
+                  console.log('FOV set to:', value, data);
+              }).catch(error => {
+                  console.error('Error setting FOV:', error);
+              });
+        });
+
+        document.getElementById('smoothSlider').addEventListener('input', function() {
+            var value = parseInt(this.value, 10);  // Convert slider value to integer
+            document.getElementById('smoothValue').textContent = value;
+            fetch('/set_smooth', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ smooth: value })  // Key should be 'smooth'
+            }).then(response => response.json())
+              .then(data => {
+                  console.log('Smooth set to:', value, data);
+              }).catch(error => {
+                  console.error('Error setting smooth:', error);
+              });
+        });
+
+        document.getElementById('fovCircleButton').addEventListener('click', function() {
+            // Toggle FOV Circle state
+            isFovCircleEnabled = !isFovCircleEnabled;
+
+            // Update button text based on the state
+            this.textContent = isFovCircleEnabled ? 'Disable FOV Circle' : 'Enable FOV Circle';
+
+            fetch('/set_fov_circle', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    fov_circle: isFovCircleEnabled
+                })
+            }).then(response => response.json())
+              .then(data => {
+                  console.log('FOV Circle state updated:', data);
+              }).catch(error => {
+                  console.error('Error updating FOV Circle state:', error);
+              });
+        });
+
+        document.getElementById('skeletonEspButton').addEventListener('click', function() {
+            fetch('/enable_skeleton', {
+                method: 'POST'
+            }).then(response => response.json())
+              .then(data => {
+                  console.log('Skeleton enabled:', data);
+              });
+        });
+
+        document.getElementById('boxEspButton').addEventListener('click', function() {
+            // Toggle Box ESP state
+            isBoxEspEnabled = !isBoxEspEnabled;
+
+            // Update button text based on the state
+            this.textContent = isBoxEspEnabled ? 'Disable Box ESP' : 'Enable Box ESP';
+
+            fetch('/set_box_esp_flags', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    box_esp: isBoxEspEnabled,
+                    enable_esp: isBoxEspEnabled
+                })
+            }).then(response => response.json())
+              .then(data => {
+                  console.log('Box ESP flags updated:', data);
+
+                  // Send draw request only if enabled
+                  if (isBoxEspEnabled) {
+                      fetch('/draw_box_esp', {
+                          method: 'POST',
+                          headers: { 'Content-Type': 'application/json' },
+                          body: JSON.stringify({})
+                      }).then(response => response.json())
+                        .then(data => {
+                            console.log('Box ESP drawn:', data);
+                        }).catch(error => {
+                            console.error('Error drawing Box ESP:', error);
+                        });
+                  } else {
+                      // If disabled, send request to remove the Box ESP
+                      fetch('/remove_box_esp', {
+                          method: 'POST',
+                          headers: { 'Content-Type': 'application/json' }
+                      }).then(response => response.json())
+                        .then(data => {
+                            console.log('Box ESP removed:', data);
+                        }).catch(error => {
+                            console.error('Error removing Box ESP:', error);
+                        });
+                  }
+              }).catch(error => {
+                  console.error('Error updating Box ESP flags:', error);
+              });
+        });
+
+
+
+        
+    </script>
+</body>
+</html>

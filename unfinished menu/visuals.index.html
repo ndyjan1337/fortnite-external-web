@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visuals Settings</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="index.html">AIMBOT</a></li>
+                    <li><a href="visuals.index.html">VISUALS</a></li>
+                    <li><a href="#">EXTRAS</a></li>
+                    <li><a href="#">CONFIGS</a></li>
+                    <li><a href="#">SUPPORT</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <h1>Visuals Settings</h1>
+            <div class="settings">
+                <div class="checkbox-button" onclick="toggleStatus(this)">
+                    <span>Boxesp</span>
+                    <div class="status on">ON</div>
+                </div>
+                <div class="checkbox-button" onclick="toggleStatus(this)">
+                    <span>Skeletonesp</span>
+                    <div class="status on">ON</div>
+                </div>
+                <div class="checkbox-button" onclick="toggleStatus(this)">
+                    <span>Headesp</span>
+                    <div class="status on">ON</div>
+                </div>
+                <div class="checkbox-button" onclick="toggleStatus(this)">
+                    <span>Outlines</span>
+                    <div class="status off">OFF</div>
+                </div>
+                <div class="checkbox-button" onclick="toggleStatus(this)">
+                    <span>Rankedesp</span>
+                    <div class="status off">OFF</div>
+                </div>
+                <div class="checkbox-button" onclick="toggleStatus(this)">
+                    <span>Username</span>
+                    <div class="status off">OFF</div>
+                </div>
+                <div class="checkbox-button" onclick="toggleStatus(this)">
+                    <span>Distance</span>
+                    <div class="status off">OFF</div>
+                </div>
+                <div class="checkbox-button" onclick="toggleStatus(this)">
+                    <span>Snapline</span>
+                    <div class="status on">ON</div>
+                </div>
+                </div>
+                <div class="slider-container">
+                    <span>Box thickness: <span id="box-thic">5</span></span>
+                    <input type="range" id="box-thic" name="box-thic" min="1" max="5" value="1" class="long-slider" oninput="boxthic(this)">
+                </div>
+
+            <div class="slider-container">
+                <span>Skeleton thickness: <span id="skel-thic">5</span></span>
+                <input type="range" id="skel-thic" name="skel-thic" min="1" max="5" value="1" class="long-slider" oninput="skelthick(this)">
+            </div>
+
+            <div class="slider-container">
+                <span>Snapline thickness: <span id="snap-thic">5</span></span>
+                <input type="range" id="snap-thic" name="snap-thic" min="1" max="5" value="1" class="long-slider" oninput="snapthick(this)">
+            </div>
+
+            <div class="slider-container">
+                <span>Render distance: <span id="render-dis">5</span></span>
+                <input type="range" id="render-dis" name="render-dis" min="0" max="275" value="275" class="long-slider" oninput="rendis(this)">
+            </div>
+
+        </main>
+    </div>
+    <script>
+        function toggleStatus(element) {
+            var status = element.querySelector('.status');
+            if (status.classList.contains('on')) {
+                status.classList.remove('on');
+                status.classList.add('off');
+                status.textContent = 'OFF';
+            } else {
+                status.classList.remove('off');
+                status.classList.add('on');
+                status.textContent = 'ON';
+            }
+        }
+
+        function boxthic(slider) {
+            var valueDisplay = document.getElementById('box-thic');
+            valueDisplay.textContent = slider.value;
+        }
+
+        function skelthick(slider) {
+            var valueDisplay = document.getElementById('skel-thic');
+            valueDisplay.textContent = slider.value;
+        }
+
+        function snapthick(slider) {
+            var valueDisplay = document.getElementById('snap-thic');
+            valueDisplay.textContent = slider.value;
+        }
+
+        function rendis(slider) {
+            var valueDisplay = document.getElementById('render-dis');
+            valueDisplay.textContent = slider.value;
+        }
+    </script>
+</body>
+</html>
