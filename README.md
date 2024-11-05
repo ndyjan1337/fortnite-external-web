@@ -6,3 +6,8 @@ This src is the same as the selfleak v1 (https://github.com/ndyjan1337/fortnite-
 Src is not the best i know but this can be still used to understand the logic behind it (but u can play with it ofc just include ur own driver)
 
 Image:
+![alt text](https://github.com/ndyjan1337/fortnite-external-web/blob/main/image/image.png?raw=true)
+
+I will also include another index file that has a little bit cleaner menu (shitty vanta remake) but you need to fix the linkup logic behind it.
+
+Image:
