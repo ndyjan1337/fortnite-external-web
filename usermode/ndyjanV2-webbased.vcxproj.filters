@@ -1,0 +1,210 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="ImGui\imgui.cpp">
+      <Filter>imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="ImGui\imgui_draw.cpp">
+      <Filter>imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="ImGui\imgui_tables.cpp">
+      <Filter>imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="ImGui\imgui_impl_win32.cpp">
+      <Filter>imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="ImGui\imgui_impl_dx11.cpp">
+      <Filter>imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="ImGui\imgui_widgets.cpp">
+      <Filter>imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>main</Filter>
+    </ClCompile>
+    <ClCompile Include="menuproperties.cpp">
+      <Filter>menu</Filter>
+    </ClCompile>
+    <ClCompile Include="fadeinout.cpp">
+      <Filter>menu</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="hijack.hpp">
+      <Filter>overlay</Filter>
+    </ClInclude>
+    <ClInclude Include="spoofing.hpp">
+      <Filter>overlay</Filter>
+    </ClInclude>
+    <ClInclude Include="ex.hpp">
+      <Filter>overlay</Filter>
+    </ClInclude>
+    <ClInclude Include="ImGui\imgui.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="ImGui.hpp">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="ImGui\imconfig.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="ImGui\imgui_impl_dx11.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="ImGui\imgui_internal.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="ImGui\imgui_impl_win32.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="font.hpp">
+      <Filter>font</Filter>
+    </ClInclude>
+    <ClInclude Include="fortnitefont.h">
+      <Filter>font</Filter>
+    </ClInclude>
+    <ClInclude Include="lightfont.h">
+      <Filter>font</Filter>
+    </ClInclude>
+    <ClInclude Include="startup.hpp">
+      <Filter>main</Filter>
+    </ClInclude>
+    <ClInclude Include="menucol.h">
+      <Filter>menu</Filter>
+    </ClInclude>
+    <ClInclude Include="fadeinout.hpp">
+      <Filter>menu</Filter>
+    </ClInclude>
+    <ClInclude Include="Config.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="crypter.h">
+      <Filter>Trash</Filter>
+    </ClInclude>
+    <ClInclude Include="hider.h">
+      <Filter>Trash</Filter>
+    </ClInclude>
+    <ClInclude Include="ImGui\imstb_rectpack.h">
+      <Filter>Trash</Filter>
+    </ClInclude>
+    <ClInclude Include="ImGui\imstb_textedit.h">
+      <Filter>Trash</Filter>
+    </ClInclude>
+    <ClInclude Include="ImGui\imstb_truetype.h">
+      <Filter>Trash</Filter>
+    </ClInclude>
+    <ClInclude Include="lazyyyy.hpp">
+      <Filter>Trash</Filter>
+    </ClInclude>
+    <ClInclude Include="particles.hpp">
+      <Filter>menu</Filter>
+    </ClInclude>
+    <ClInclude Include="xorst.h">
+      <Filter>Trash</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Trash</Filter>
+    </ClInclude>
+    <ClInclude Include="defs.h">
+      <Filter>Trash</Filter>
+    </ClInclude>
+    <ClInclude Include="cache.hpp">
+      <Filter>game</Filter>
+    </ClInclude>
+    <ClInclude Include="cache_helper.hpp">
+      <Filter>game</Filter>
+    </ClInclude>
+    <ClInclude Include="functions.hpp">
+      <Filter>game</Filter>
+    </ClInclude>
+    <ClInclude Include="globals.hpp">
+      <Filter>game</Filter>
+    </ClInclude>
+    <ClInclude Include="import.hpp">
+      <Filter>game</Filter>
+    </ClInclude>
+    <ClInclude Include="imports.h">
+      <Filter>game</Filter>
+    </ClInclude>
+    <ClInclude Include="includes.hpp">
+      <Filter>game</Filter>
+    </ClInclude>
+    <ClInclude Include="keybind.hpp">
+      <Filter>game</Filter>
+    </ClInclude>
+    <ClInclude Include="offsets.hpp">
+      <Filter>game</Filter>
+    </ClInclude>
+    <ClInclude Include="prediction.hpp">
+      <Filter>game</Filter>
+    </ClInclude>
+    <ClInclude Include="render.hpp">
+      <Filter>game</Filter>
+    </ClInclude>
+    <ClInclude Include="ue.hpp">
+      <Filter>game</Filter>
+    </ClInclude>
+    <ClInclude Include="vectors.hpp">
+      <Filter>game</Filter>
+    </ClInclude>
+    <ClInclude Include="utildriver.hpp">
+      <Filter>game</Filter>
+    </ClInclude>
+    <ClInclude Include="aimbot.cpp">
+      <Filter>aimbot</Filter>
+    </ClInclude>
+    <ClInclude Include="triggerbothelper.h">
+      <Filter>aimbot</Filter>
+    </ClInclude>
+    <ClInclude Include="helper.hpp">
+      <Filter>aimbot</Filter>
+    </ClInclude>
+    <ClInclude Include="httplib.h">
+      <Filter>main</Filter>
+    </ClInclude>
+    <ClInclude Include="json.hpp" />
+    <ClInclude Include="cheat-func.h">
+      <Filter>main</Filter>
+    </ClInclude>
+    <ClInclude Include="driver.h">
+      <Filter>drv</Filter>
+    </ClInclude>
+    <ClInclude Include="fontawesome.h">
+      <Filter>font</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="drv">
+      <UniqueIdentifier>{c9b7b2f2-f98b-4b21-a664-0d05d39c1f48}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="overlay">
+      <UniqueIdentifier>{ff021b30-c07a-4767-8806-6b5009313304}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="font">
+      <UniqueIdentifier>{9de6050e-9b13-46bb-8a5b-0883957eb826}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="main">
+      <UniqueIdentifier>{524431a2-406a-4e73-967f-9aad6567494b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="imgui">
+      <UniqueIdentifier>{cf800d19-efb6-406f-a2cf-50b2f116bd1f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="menu">
+      <UniqueIdentifier>{a290bf62-5fa4-4c48-85dd-4c7962be103d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Trash">
+      <UniqueIdentifier>{6b21d9b6-75de-458d-b541-7cb9e550329c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game">
+      <UniqueIdentifier>{ca2e2d1f-13d3-4292-99e4-26eb3ab9f2d7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="aimbot">
+      <UniqueIdentifier>{08ad06a1-5a26-4ad4-81ae-c1acd9d76acf}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="ImGui\d3d11.lib">
+      <Filter>imgui</Filter>
+    </Library>
+  </ItemGroup>
+</Project>
