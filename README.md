@@ -16,7 +16,11 @@ I will also include another index file that has a little bit cleaner menu (shitt
 
 Please remember i never really finished this cause i have never had time for it thats why i am leaking it unfinished but working
 
+
+Made with ♡ Made with Chatgpt 
+
 Have fun 
+
 would appreciate a star
 
 for help @ndyjan1336 on discord
