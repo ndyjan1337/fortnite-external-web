@@ -1,5 +1,5 @@
 # fortnite-external-web
-Selfleak Fortnite external under the name (vatos x ndyjan) aka owl.lol V2 (updated 05.11.24)
+Selfleak Fortnite external under the name (vatos x ndyjan) aka owl.lol V2 (outdated)
 
 This src is the same as the selfleak v1 (https://github.com/ndyjan1337/fortnite-external) only that it has a webbased menu hosted on https://localhost:8080
 
