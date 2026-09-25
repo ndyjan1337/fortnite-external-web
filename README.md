@@ -23,4 +23,4 @@ Have fun
 
 would appreciate a star
 
-for help @ndyjan on discord
+for help @ndyjan1337 on discord
